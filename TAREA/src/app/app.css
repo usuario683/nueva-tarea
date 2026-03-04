@@ -1,0 +1,5 @@
+header { background: #111827; color: white; padding: 14px 0; }
+header .container { display:flex; align-items:center; justify-content:space-between; }
+header h1 { font-size: 18px; margin: 0; font-weight: 700; }
+header a { color: #93c5fd; text-decoration: none; font-weight: 600; }
+footer { margin-top: 18px; padding: 12px 0; color: #666; }

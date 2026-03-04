@@ -1,0 +1,42 @@
+<div class="card">
+  <h2>Gestión de Productos</h2>
+  <p><small class="muted">Angular consumiendo API REST en Spring Boot con GET, POST y DELETE.</small></p>
+
+  <div class="row" style="margin-top: 12px;">
+    <input type="text" placeholder="Nombre" [(ngModel)]="nuevoProducto.nombre">
+    <input type="number" placeholder="Precio" [(ngModel)]="nuevoProducto.precio">
+    <button (click)="guardarProducto()">Registrar (POST)</button>
+    <button (click)="obtenerProductos()" style="background:#6b7280;">Refrescar (GET)</button>
+  </div>
+
+  <p *ngIf="cargando" style="margin-top: 12px;">Cargando...</p>
+  <p *ngIf="error" style="margin-top: 12px; color:#d1242f;"><b>{{ error }}</b></p>
+
+  <div style="margin-top: 14px;">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of productos">
+          <td>{{ p.id }}</td>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.precio }}</td>
+          <td>
+            <button class="danger" (click)="eliminarProducto(p.id)">Eliminar (DELETE)</button>
+          </td>
+        </tr>
+
+        <tr *ngIf="!cargando && productos.length === 0">
+          <td colspan="4"><small class="muted">No hay registros.</small></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
